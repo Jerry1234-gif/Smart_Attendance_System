@@ -1,0 +1,17 @@
+SMART ATTENDANCE SYSTEM - CHANGELOG
+
+Version 1.1.0
+- Added Limkokwing student ID validation: IDs must begin with 90500 and contain digits only after that prefix.
+- Added browser-side input pattern and explanatory help text.
+- Added server-side PHP validation so the form rule cannot be bypassed by direct HTTP requests.
+- Added a database CHECK constraint for fresh installations and a migration SQL file for existing databases.
+- Updated installation, user, system overview and testing documentation.
+
+
+2026-11-24 - Lecturer-requested accessibility and support additions
+- Added a shared accessibility/display panel: text-size zoom, five colour themes, light/dark mode, high contrast, readable font, link underlining, reduced motion and larger cursor.
+- Added browser text-to-speech controls (read page aloud / stop reading).
+- Added an AI Assistant page with a built-in help fallback and optional server-side OpenAI Responses API connection.
+- Added Help & Support FAQs, support-request form and administrator support inbox.
+- Kept the existing user-management page and the 90500 student-ID rule.
+- Existing dashboard, lecturer, student, login and attendance page designs are retained.

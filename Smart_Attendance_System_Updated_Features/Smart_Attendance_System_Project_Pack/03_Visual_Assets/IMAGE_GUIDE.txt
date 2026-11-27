@@ -1,0 +1,28 @@
+SMART ATTENDANCE SYSTEM - VISUAL ASSET GUIDE
+
+Classroom_QR_Attendance_Illustration.png
+A conceptual classroom illustration showing a student scanning a QR code displayed during a lecture. Use as the report cover image or presentation visual.
+
+01_Student_Dashboard_Mockup.png
+Student landing screen showing the attendance overview, today's classes and the main scan action.
+
+02_QR_Scan_Mockup.png
+Student QR scanning screen concept. In the interactive prototype, this action is simulated rather than camera-based.
+
+03_Attendance_Confirmation_Mockup.png
+Confirmation screen with the course, code, date, time and present status.
+
+04_Attendance_History_Mockup.png
+Example student record-history screen. All records and dates are sample data.
+
+05_Lecturer_Portal_Mockup.png
+Lecturer concept screen with a demo session QR and a sample attendance list.
+
+06_Attendance_Workflow_Diagram.png
+Step-by-step workflow from lecturer session creation to student validation and attendance confirmation.
+
+07_System_Interaction_Diagram.png
+High-level system map showing student, lecturer and administrator interfaces communicating with the central attendance system.
+
+Demo_Session_QR.png
+A QR code containing demo-only text for the prototype. It does not connect to a live attendance platform.

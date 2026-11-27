@@ -1,0 +1,7 @@
+Project: Smart Attendance System
+Version: 1.1.0
+Change: Enforces Limkokwing student IDs beginning with 90500
+Type: Responsive PHP + MySQL web application for an HCI coursework prototype
+Minimum PHP: 8.1
+Database: MySQL or MariaDB via PDO MySQL
+Primary environment: XAMPP on Windows

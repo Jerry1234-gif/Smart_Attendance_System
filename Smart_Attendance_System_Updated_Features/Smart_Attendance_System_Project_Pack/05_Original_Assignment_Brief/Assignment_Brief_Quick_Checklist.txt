@@ -1,0 +1,59 @@
+DTECH206 HUMAN COMPUTER INTERACTION - GROUP PROJECT QUICK CHECKLIST
+Source: the three-page assignment brief supplied by the student.
+
+ASSIGNMENT TITLE
+Design a new interactive device or piece of software.
+
+OBJECTIVE
+Understand the impact of human-computer interaction on different application and career fields.
+
+WHAT THE GROUP MUST SUBMIT
+1. Part A: Three best brainstorming ideas, each with a 1-5 sentence description.
+2. Part B: Identify the selected idea and give a short justification for choosing it over the other two.
+3. Two related research references, with 1-5 sentences for each explaining how it relates to the selected idea.
+4. Problem description.
+5. A report and its own practical example/prototype.
+6. References for all sources.
+
+MARKING CRITERIA
+- Topic brainstorming: 10%
+- Research methodology: 30%
+- Implementation: 30%
+- Problem description: 10%
+- Goals: 10%
+- References: 10%
+Total: 100 marks.
+
+SUBMISSION AND PRESENTATION
+- Minimum five printed pages.
+- Hard-copy submission.
+- Line spacing: 1.5.
+- Font-size conflict: page 2 says Tahoma 11; page 3 says Tahoma 12.
+- Include student name, student ID and assignment title in the submitted file/report identification.
+- The brief says all sources must be referenced and the practical example must be the group's own work.
+
+IMPORTANT INSTRUCTIONS / PENALTIES
+- The brief warns against copying information directly from websites or other students.
+- Plagiarism may result in zero marks and no resubmission.
+- Students may be asked questions about the report or video to confirm their understanding.
+- Late penalty: 10 marks deducted for each week late.
+
+CONFLICTS TO CONFIRM WITH LECTURER
+- Deadline: page 1 states Week 14; page 2 says week 9.
+- Font size: page 2 states Tahoma 11; page 3 states Tahoma 12.
+- Project weighting: page 1 shows Group Project 30%; page 2 says the assignment contributes 15% to the module mark.
+
+COURSE DETAILS ON PAGE 1
+- Department: Information and Communication Technology.
+- Course location: Sierra Leone.
+- Semester: 05.
+- Academic period: September 2026 to February 2027.
+- Credits: 3.
+- Contact hours: 3 hours per week (2 lecture hours and 1 tutorial hour).
+- Number of weeks: 14.
+- Issues date: Week 12.
+- Lecturer/examiner contact details are shown on the original brief PDF.
+
+OUTCOMES LISTED ON PAGE 2
+- Understand the basic concept of human-computer interaction.
+- Help to improve understanding of interactive design and prototyping.

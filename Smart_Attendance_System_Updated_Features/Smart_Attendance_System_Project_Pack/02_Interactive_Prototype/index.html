@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Smart Attendance System - Interactive Concept Prototype</title>
+<style>
+:root{--ink:#172c35;--muted:#667982;--green:#16846b;--green2:#e8f5f0;--teal:#dff2ef;--line:#e4ecea;--bg:#f2f6f5;--white:#fff;--orange:#f3a54a;--red:#b74646;}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(135deg,#e7f0ee,#f7f9f8);font-family:Tahoma,Arial,sans-serif;color:var(--ink);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+.shell{width:100%;max-width:440px;min-height:850px;height:min(900px,calc(100vh - 48px));background:#fff;border:1px solid #dbe5e2;border-radius:30px;box-shadow:0 22px 65px rgba(26,59,55,.15);overflow:hidden;display:flex;flex-direction:column;position:relative}
+.top{padding:22px 24px 15px;background:#fff;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center}
+.brand{display:flex;align-items:center;gap:10px}.brandmark{width:39px;height:39px;border-radius:13px;background:var(--green);display:grid;place-items:center;color:#fff;font-weight:700;font-size:16px}.brandname{font-size:15px;font-weight:700;letter-spacing:.1px}.brandtag{font-size:10px;color:var(--muted);margin-top:3px}.pill{background:var(--green2);color:var(--green);font-size:10px;padding:7px 10px;border-radius:20px;font-weight:700}
+main{flex:1;overflow:auto;padding:21px 22px 88px;background:#fbfdfc}.hello{font-size:12px;color:var(--muted);margin:0 0 5px}.screen-title{font-size:23px;line-height:1.2;margin:0 0 8px;font-weight:700}.sub{font-size:12px;color:var(--muted);line-height:1.55;margin:0 0 20px}.summary{background:linear-gradient(135deg,#126b5b,#16846b);color:#fff;border-radius:21px;padding:19px;box-shadow:0 10px 20px rgba(22,132,107,.16);margin-bottom:20px}.summary-head{display:flex;justify-content:space-between;align-items:center;font-size:11px;opacity:.92}.summary-number{font-size:33px;font-weight:700;margin:12px 0 3px}.summary-caption{font-size:11px;opacity:.92}.progress{height:7px;border-radius:20px;background:rgba(255,255,255,.23);margin:14px 0 8px;overflow:hidden}.progress span{display:block;width:82%;height:100%;background:#fff;border-radius:20px}.progress-labels{display:flex;justify-content:space-between;font-size:10px;opacity:.9}
+.section-head{display:flex;justify-content:space-between;align-items:center;margin:19px 0 11px}.section-head h3{font-size:14px;margin:0}.link{font-size:11px;color:var(--green);font-weight:700}.course{border:1px solid var(--line);border-radius:16px;background:#fff;padding:13px 14px;margin-bottom:10px;display:flex;align-items:center;gap:12px}.course-icon{width:42px;height:42px;border-radius:13px;background:#e9f4f0;color:var(--green);display:grid;place-items:center;font-size:15px;font-weight:700}.course-info{flex:1}.course-name{font-size:12px;font-weight:700;margin-bottom:4px}.course-meta{font-size:10px;color:var(--muted)}.course-state{font-size:9px;color:var(--green);font-weight:700;background:#e8f5f0;padding:6px 8px;border-radius:15px}
+.primary{border:0;background:var(--green);color:#fff;border-radius:14px;padding:14px 16px;font-family:inherit;font-size:13px;font-weight:700;width:100%;cursor:pointer;box-shadow:0 7px 15px rgba(22,132,107,.15)}.secondary{border:1px solid #cfe1db;background:#f5faf8;color:var(--green);border-radius:13px;padding:12px 15px;font-family:inherit;font-size:12px;font-weight:700;width:100%;cursor:pointer}.text-button{border:0;background:transparent;color:var(--green);font-family:inherit;font-weight:700;font-size:11px;cursor:pointer;padding:8px}
+.bottom{position:absolute;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);height:72px;display:flex;justify-content:space-around;align-items:center;padding:6px 8px 10px}.nav{border:0;background:transparent;color:#8a999c;font-family:inherit;font-size:9px;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:5px;width:25%}.nav .ico{width:30px;height:26px;display:grid;place-items:center;font-size:17px}.nav.active{color:var(--green);font-weight:700}.nav.active .ico{background:var(--green2);border-radius:10px;width:38px}
+.scan-box{border:1.5px dashed #9ac8b8;background:#f0f8f5;border-radius:22px;padding:23px 16px;text-align:center;margin:16px 0}.scan-frame{height:180px;width:180px;margin:0 auto 14px;border:3px solid var(--green);border-radius:21px;display:grid;place-items:center;background:#fff;position:relative}.scan-frame:before,.scan-frame:after{content:'';position:absolute;width:32px;height:32px;border-color:var(--orange);border-style:solid}.scan-frame:before{top:9px;left:9px;border-width:4px 0 0 4px;border-radius:8px 0 0 0}.scan-frame:after{bottom:9px;right:9px;border-width:0 4px 4px 0;border-radius:0 0 8px 0}.scan-qr{width:122px;height:122px;object-fit:contain}.scan-copy{font-size:12px;font-weight:700;margin-bottom:5px}.scan-hint{font-size:10px;color:var(--muted);line-height:1.5}.notice{border-radius:13px;background:#fff7e9;border:1px solid #f8e1b9;padding:12px;font-size:10px;color:#80602e;line-height:1.5;margin-top:14px}
+.success{padding:18px 2px;text-align:center}.success-icon{height:82px;width:82px;border-radius:50%;background:#e4f5ed;color:var(--green);display:grid;place-items:center;font-size:38px;margin:12px auto 19px}.success h2{font-size:23px;margin:0 0 8px}.success p{font-size:11px;color:var(--muted);line-height:1.6;margin:0 0 17px}.detail-card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px;text-align:left;margin:16px 0}.detail-row{display:flex;justify-content:space-between;gap:12px;font-size:10px;padding:8px 0;border-bottom:1px solid #eef2f1}.detail-row:last-child{border:0}.detail-row span:first-child{color:var(--muted)}.detail-row strong{text-align:right}
+.history-item{border:1px solid var(--line);border-radius:15px;background:#fff;padding:13px;margin-bottom:9px;display:flex;gap:11px;align-items:center}.check{width:35px;height:35px;border-radius:12px;background:#e9f6ef;color:var(--green);display:grid;place-items:center;font-weight:700}.history-info{flex:1}.history-name{font-size:11px;font-weight:700;margin-bottom:4px}.history-meta{font-size:9px;color:var(--muted)}.present{font-size:9px;color:var(--green);font-weight:700}.profile{display:flex;gap:12px;align-items:center;border:1px solid var(--line);border-radius:16px;background:#fff;padding:14px;margin:14px 0}.avatar{height:43px;width:43px;border-radius:50%;background:#dcedea;color:var(--green);display:grid;place-items:center;font-weight:700}.profile strong{font-size:12px}.profile small{display:block;font-size:10px;color:var(--muted);margin-top:4px}
+.lecturer{display:none}.lecturer .top{border-radius:20px}.lecturer-body{padding:22px;overflow:auto;background:#fbfdfc;flex:1}.qr-panel{background:#fff;border:1px solid var(--line);border-radius:18px;padding:17px;text-align:center;margin:15px 0}.qr-panel img{height:158px;width:158px;object-fit:contain}.qr-title{font-size:13px;font-weight:700;margin:8px 0}.qr-meta{font-size:10px;color:var(--muted);line-height:1.6}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:15px 0}.stat{background:#fff;border:1px solid var(--line);border-radius:15px;padding:14px}.stat b{font-size:22px;display:block;margin-bottom:4px}.stat span{font-size:10px;color:var(--muted)}.roster{background:#fff;border:1px solid var(--line);border-radius:15px;overflow:hidden}.roster-row{display:flex;justify-content:space-between;padding:12px 13px;font-size:10px;border-bottom:1px solid #eef2f1}.roster-row:last-child{border:0}.backrow{display:flex;justify-content:space-between;align-items:center}.mini-link{font-size:11px;color:var(--green);border:0;background:none;font-family:inherit;cursor:pointer;font-weight:700}
+@media(max-width:520px){body{padding:0;background:#fff}.shell{border:0;border-radius:0;min-height:100vh;height:100vh;box-shadow:none}.top{padding-top:18px}}
+</style>
+</head>
+<body>
+<div class="shell" id="studentApp">
+  <header class="top">
+    <div class="brand"><div class="brandmark">SA</div><div><div class="brandname">Smart Attendance</div><div class="brandtag">A simpler way to check in</div></div></div>
+    <button class="pill" style="border:0;cursor:pointer;font-family:inherit" onclick="switchRole('lecturer')">LECTURER VIEW</button>
+  </header>
+  <main id="mainContent">
+    <section id="homeScreen">
+      <p class="hello">WELCOME BACK</p><h1 class="screen-title">Hello, Student Demo</h1><p class="sub">Keep track of your classes and attendance in one place.</p>
+      <div class="summary"><div class="summary-head"><span>Attendance overview</span><span>Semester 1</span></div><div class="summary-number">82%</div><div class="summary-caption">Overall attendance rate</div><div class="progress"><span></span></div><div class="progress-labels"><span>Good progress</span><span>Target: 75%</span></div></div>
+      <button class="primary" onclick="showScreen('scanScreen')">Scan QR to mark attendance&nbsp; &gt;</button>
+      <div class="section-head"><h3>Today's classes</h3><span class="link">View timetable</span></div>
+      <div class="course"><div class="course-icon">HC</div><div class="course-info"><div class="course-name">Human Computer Interaction</div><div class="course-meta">DTECH206 · 9:00 AM · Room 204</div></div><span class="course-state">OPEN</span></div>
+      <div class="course"><div class="course-icon">WD</div><div class="course-info"><div class="course-name">Web Development</div><div class="course-meta">DTECH204 · 1:00 PM · Lab 2</div></div><span class="course-state" style="background:#f1f3f4;color:#68777d">LATER</span></div>
+      <div class="section-head"><h3>Quick tips</h3></div><div class="sub" style="margin:0">Sign in with your own student account and scan the code shown by your lecturer during the attendance window.</div>
+    </section>
+    <section id="scanScreen" style="display:none">
+      <p class="hello">ATTENDANCE CHECK-IN</p><h1 class="screen-title">Scan class QR code</h1><p class="sub">Point your camera at the code displayed by your lecturer. This concept prototype uses a simulated scan.</p>
+      <div class="scan-box"><div class="scan-frame"><img class="scan-qr" src="../03_Visual_Assets/Demo_Session_QR.png" alt="Demo QR code"/></div><div class="scan-copy">Ready to scan</div><div class="scan-hint">Place the QR code inside the frame<br/>Make sure the code is clear and well lit</div></div>
+      <button class="primary" onclick="completeDemoScan()">Simulate QR scan</button><div class="notice"><b>Demo notice:</b> No camera or university database is connected. This button demonstrates the proposed student journey only.</div>
+    </section>
+    <section id="successScreen" style="display:none" class="success">
+      <div class="success-icon">OK</div><h2>Attendance recorded!</h2><p>Your attendance for this class has been added to the local demo history.</p>
+      <div class="detail-card"><div class="detail-row"><span>Course</span><strong>Human Computer Interaction</strong></div><div class="detail-row"><span>Course code</span><strong>DTECH206</strong></div><div class="detail-row"><span>Date</span><strong id="successDate">20 Nov 2026</strong></div><div class="detail-row"><span>Time</span><strong id="successTime">09:05 AM</strong></div><div class="detail-row"><span>Status</span><strong style="color:var(--green)">Present</strong></div></div>
+      <button class="primary" onclick="showScreen('historyScreen')">View attendance history</button><button class="text-button" onclick="showScreen('homeScreen')">Back to dashboard</button>
+    </section>
+    <section id="historyScreen" style="display:none">
+      <p class="hello">YOUR RECORDS</p><h1 class="screen-title">Attendance history</h1><p class="sub">Review the attendance records saved in this browser demo.</p>
+      <div id="historyList"></div><div class="notice">Sample records are shown for demonstration. A real version would load verified records from the university database.</div>
+      <button class="secondary" style="margin-top:14px" onclick="clearDemoRecords()">Clear simulated scan record</button>
+    </section>
+    <section id="helpScreen" style="display:none">
+      <p class="hello">HELP & SUPPORT</p><h1 class="screen-title">Need help?</h1><p class="sub">A few quick answers to common attendance questions.</p>
+      <div class="course" style="display:block"><div class="course-name">My code will not scan</div><div class="course-meta">Check the brightness of the screen, clean your camera lens and make sure the session has not expired.</div></div>
+      <div class="course" style="display:block"><div class="course-name">I do not have data or a working phone</div><div class="course-meta">Tell the lecturer before leaving. The proposed system includes a manual verification fallback.</div></div>
+      <div class="course" style="display:block"><div class="course-name">My attendance is missing</div><div class="course-meta">Show the lecturer your course and class time. A lecturer or administrator can review the session record.</div></div>
+      <div class="notice">The real system should provide a help contact and a clear process for correcting attendance errors.</div>
+    </section>
+  </main>
+  <nav class="bottom">
+    <button class="nav active" id="navHome" onclick="showScreen('homeScreen')"><span class="ico">H</span>Home</button>
+    <button class="nav" id="navScan" onclick="showScreen('scanScreen')"><span class="ico">QR</span>Scan</button>
+    <button class="nav" id="navHistory" onclick="showScreen('historyScreen')"><span class="ico">R</span>History</button>
+    <button class="nav" id="navHelp" onclick="showScreen('helpScreen')"><span class="ico">?</span>Help</button>
+  </nav>
+</div>
+<div class="shell lecturer" id="lecturerApp">
+  <header class="top"><div class="brand"><div class="brandmark">SA</div><div><div class="brandname">Smart Attendance</div><div class="brandtag">Lecturer session portal</div></div></div><span class="pill">LECTURER</span></header>
+  <div class="lecturer-body">
+    <div class="backrow"><div><p class="hello">LECTURER DASHBOARD</p><h1 class="screen-title">Class session</h1></div><button class="mini-link" onclick="switchRole('student')">Student view ↗</button></div>
+    <p class="sub">Create a temporary attendance code and monitor student check-ins.</p>
+    <div class="stat-grid"><div class="stat"><b id="presentCount">24</b><span>Students present</span></div><div class="stat"><b>30</b><span>Students enrolled</span></div></div>
+    <div class="qr-panel"><div class="pill">DEMO ACTIVE SESSION</div><img src="../03_Visual_Assets/Demo_Session_QR.png" alt="Demo session QR code"/><div class="qr-title">Human Computer Interaction</div><div class="qr-meta">DTECH206 · Room 204<br/>Session window: 9:00 AM - 9:15 AM<br/><b>Demo code:</b> DTECH206-DEMO-2026</div></div>
+    <button class="primary" onclick="refreshSession()">Refresh demo session</button>
+    <div class="section-head"><h3>Attendance list</h3><span class="link">Sample data</span></div>
+    <div class="roster"><div class="roster-row"><span>Student 001</span><b style="color:var(--green)">Present</b></div><div class="roster-row"><span>Student 002</span><b style="color:var(--green)">Present</b></div><div class="roster-row"><span>Student 003</span><b style="color:#a56a14">Late</b></div><div class="roster-row"><span>Student 004</span><b style="color:#89979a">Not recorded</b></div></div>
+    <div class="notice">This is a visual lecturer concept. The QR image and attendance list are sample data; no real student information is stored.</div>
+  </div>
+</div>
+<script>
+const screenIds=['homeScreen','scanScreen','successScreen','historyScreen','helpScreen'];
+function showScreen(id){screenIds.forEach(s=>document.getElementById(s).style.display=(s===id?(id==='successScreen'?'block':'block'):'none'));['navHome','navScan','navHistory','navHelp'].forEach(n=>document.getElementById(n).classList.remove('active'));const map={homeScreen:'navHome',scanScreen:'navScan',successScreen:'navScan',historyScreen:'navHistory',helpScreen:'navHelp'};document.getElementById(map[id]).classList.add('active');if(id==='historyScreen')renderHistory();document.getElementById('mainContent').scrollTop=0;}
+let memoryRecords=[];
+function getRecords(){try{return JSON.parse(localStorage.getItem('sas-demo-records')||'[]')}catch(e){return memoryRecords}}
+function saveRecords(records){memoryRecords=records;try{localStorage.setItem('sas-demo-records',JSON.stringify(records))}catch(e){/* The demo still works in memory when browser storage is unavailable. */}}
+function completeDemoScan(){const records=getRecords();const existing=records.find(r=>r.code==='DTECH206-DEMO-2026');if(existing){alert('This demo session has already been recorded in this browser. Open History to review it.');showScreen('historyScreen');return;}const d=new Date();const row={course:'Human Computer Interaction',code:'DTECH206-DEMO-2026',date:d.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'}),time:d.toLocaleTimeString('en-US',{hour:'2-digit',minute:'2-digit'}),status:'Present'};records.unshift(row);saveRecords(records);document.getElementById('successDate').textContent=row.date;document.getElementById('successTime').textContent=row.time;showScreen('successScreen');}
+function renderHistory(){const el=document.getElementById('historyList');const demo=getRecords();const sample=[{course:'Web Development',code:'DTECH204',date:'18 Nov 2026',time:'01:03 PM',status:'Present'},{course:'Database Systems',code:'DTECH202',date:'17 Nov 2026',time:'10:02 AM',status:'Present'}];const records=[...demo,...sample];el.innerHTML=records.map(r=>`<div class="history-item"><div class="check">OK</div><div class="history-info"><div class="history-name">${r.course}</div><div class="history-meta">${r.code} · ${r.date} · ${r.time}</div></div><span class="present">${r.status}</span></div>`).join('');}
+function clearDemoRecords(){memoryRecords=[];try{localStorage.removeItem('sas-demo-records')}catch(e){}renderHistory();}
+function switchRole(role){document.getElementById('studentApp').style.display=role==='student'?'flex':'none';document.getElementById('lecturerApp').style.display=role==='lecturer'?'flex':'none';}
+function refreshSession(){const n=document.getElementById('presentCount');n.textContent=Number(n.textContent)+1;alert('Demo only: a real system would generate a fresh time-limited QR token and update the session expiry.');}
+renderHistory();
+</script>
+</body></html>
